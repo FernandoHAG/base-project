@@ -1,31 +1,77 @@
-:root {
-  font-family: Geist Sans, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.8);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
 body {
-  margin: 0px;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  padding: 2rem;
 }
 
-.unselectable {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  -khtml-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.undraggable {
-  pointer-events: none;
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.new-task {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+.task-list {
+  margin-bottom: 1rem;
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+.task-item:last-child {
+  border-bottom: none;
+}
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+}
+.completed {
+  text-decoration: line-through;
+  color: #888;
 }
