@@ -36,5 +36,11 @@ export function useTasks() {
     setTasks((prev) => prev.filter((t) => !t.completed));
   };
 
-  return { tasks, addTask, toggleTask, clearCompleted };
+  const editTask = (id: string, newName: string) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, name: newName } : t))
+    );
+  };
+
+  return { tasks, addTask, toggleTask, clearCompleted, editTask };
 }

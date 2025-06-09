@@ -21,6 +21,7 @@ body {
 h1 {
   margin-bottom: 1rem;
   text-align: center;
+  width: 100%;
 }
 .new-task {
   display: flex;

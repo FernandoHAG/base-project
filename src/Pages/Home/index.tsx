@@ -5,7 +5,7 @@ import { Button } from "../../components/atoms/Button/Button";
 import { TaskList } from "../../components/organisms/TaskList/TaskList";
 
 export default function Home() {
-  const { tasks, addTask, toggleTask, clearCompleted } = useTasks();
+  const { tasks, addTask, toggleTask, clearCompleted, editTask } = useTasks();
   const [newName, setNewName] = useState("");
 
   const handleAdd = () => {
@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className="app-container">
-      <h1>Minhas Tarefas</h1>
+      <h1 className="cssanimation leScaleXIn sequence">Minhas Tarefas</h1>
       <div className="new-task">
         <Input
           value={newName}
@@ -25,7 +25,7 @@ export default function Home() {
         />
         <Button onClick={handleAdd}>Adicionar</Button>
       </div>
-      <TaskList tasks={tasks} onToggle={toggleTask} />
+      <TaskList tasks={tasks} onToggle={toggleTask} onEdit={editTask} />
       <Button variant="secondary" onClick={clearCompleted}>
         Limpar concluídas
       </Button>
