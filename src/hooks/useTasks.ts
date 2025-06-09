@@ -1,15 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Task } from "../interfaces/Task";
 import { loadTasks, saveTasks } from "../utils/storage";
 
 export function useTasks() {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const isFirstLoad = useRef(true);
 
   useEffect(() => {
-    setTasks(loadTasks());
+    const tasks = loadTasks();
+    setTasks(tasks);
   }, []);
 
   useEffect(() => {
+    if (isFirstLoad.current) {
+      isFirstLoad.current = false;
+      return;
+    }
     saveTasks(tasks);
   }, [tasks]);
 
@@ -22,7 +28,7 @@ export function useTasks() {
 
   const toggleTask = (id: string) => {
     setTasks((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)),
+      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
     );
   };
 
